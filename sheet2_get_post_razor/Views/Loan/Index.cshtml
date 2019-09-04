@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "loanView";
+}
+
+<h2>Investment calculator</h2>
+
+<form name="investmentForm" method="post">
+    Initial Investment: <input type="number" name="investment" min="1"/>
+    <br />
+    Interest Rate: <input type="number" name="intRate" min="0" />
+    <br />
+    Number of years: <input type="number" name="years" min="0" />
+    <br />
+    <input type="submit" name="submit" /><br />
+</form>
+
+<br />
+@{ 
+    if (ViewBag.res != null) {
+    <p>Given @ViewBag.years years, an investment of $@ViewBag.investment, and an annual rate of @ViewBag.intRate%, you will have @ViewBag.res.</p>
+        }
+    }

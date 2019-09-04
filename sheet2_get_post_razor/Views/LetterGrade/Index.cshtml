@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Grade Calculator</h2>
+
+
+@using (Html.BeginForm("Index", "LetterGrade", FormMethod.Post))
+{
+    <label for="exam1">Exam 1 Grade:</label>
+    @Html.TextBox("exam1", "", new { @type = "number", min = 0, max = 100 })
+    <br />
+    <br />
+    <label for="exam2">Exam 2 Grade:</label>
+    @Html.TextBox("exam2", "", new { @type = "number", min = 0, max = 100 })
+    <br />
+    <br />
+    <label for="exam3">Exam 3 Grade:</label>
+    @Html.TextBox("exam3", "", new { @type = "number", min = 0, max = 100 })
+    <br />
+    <br />
+    <input type="submit" value="Calculate Letter Grade" />
+}
+
+<br /><br />
+@{ if (ViewBag.letterGrade != null)
+    {
+<h2 style="color:@ViewBag.color;">Your average is @ViewBag.average%, which translates to a letter grade of @ViewBag.letterGrade</h2>
+        }
+    }
